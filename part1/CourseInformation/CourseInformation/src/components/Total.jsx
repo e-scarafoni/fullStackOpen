@@ -1,8 +1,11 @@
-const Total = (props) => {
-  console.log(props)
+const Total = ({parts}) => {
+  let totalExercises = 0
+  parts.forEach((part) => {
+    totalExercises += part.exercises
+  })
   return (
     <p>
-      Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
+      Number of exercises {totalExercises}
     </p>
   )
 }
