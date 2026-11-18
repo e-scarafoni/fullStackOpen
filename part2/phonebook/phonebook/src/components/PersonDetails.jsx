@@ -1,8 +1,11 @@
-const PersonDetails = ({ person }) => {
+const PersonDetails = ({ person, onDelete }) => {
     return (
-        <p>
+        <>
+            <p>
             {person.name} {person.number}
-        </p>
+            </p>
+            <button onClick={() => onDelete(person)}>Delete</button>
+        </>
     )
 }
 
