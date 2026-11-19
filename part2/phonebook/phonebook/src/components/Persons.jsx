@@ -1,7 +1,7 @@
 import PersonDetails from "./PersonDetails"
 import personService from "../services/persons"
 
-const Persons = ({persons, setPersons, filter}) => {
+const Persons = ({persons, setPersons, filter, showErrorNotification}) => {
 
    const handleDelete = (person) => {
       const confirmDelete = window.confirm("Delete " + person.name + "?")
@@ -12,6 +12,9 @@ const Persons = ({persons, setPersons, filter}) => {
           .then(response => {
             console.log("promise fulfilled", response)
             setPersons(persons.filter(p => p.id !== person.id))
+          })
+          .catch(error => {
+            showErrorNotification("Information of " + person.name + " has already been removed from server")
           })
       }
     }
