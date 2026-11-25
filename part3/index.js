@@ -55,7 +55,7 @@ app.delete("/api/persons/:id", (request, response) => {
 })
 
 app.post("/api/persons", (request, response) => {
-    const id = Math.random() * 123456789
+    const id = Math.floor(Math.random() * 123456789).toString()
     const body = request.body
     if(!body.name) {
         return response.status(400).json({
