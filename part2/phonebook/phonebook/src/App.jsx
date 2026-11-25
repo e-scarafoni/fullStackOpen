@@ -65,6 +65,11 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       })
+      .catch(error => {
+        console.log(error)
+        showErrorNotification("Insert both name and number")
+      }
+      )
   }
 
   const updatePerson = () => {
